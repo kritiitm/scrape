@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from openai import OpenAI
 from pydantic import BaseModel
 import numpy as np
 import json
@@ -7,7 +8,6 @@ import logging
 import re
 import base64
 from typing import Optional
-from openai import OpenAI
 
 # Set up logging
 app = FastAPI()
