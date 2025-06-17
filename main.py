@@ -8,10 +8,17 @@ import logging
 import re
 import base64
 from typing import Optional
-
+from fastapi.middleware.cors import CORSMiddleware
 # Set up logging
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Or specify your frontend domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # Initialize Open AI client with proxy base URL
 openai_api_key = os.environ.get("OPEN_API_KEY")
 client = OpenAI(
